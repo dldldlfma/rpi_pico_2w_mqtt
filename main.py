@@ -56,6 +56,7 @@ except Exception as e:
 
 for i in range(1000):
     try:
+        data['timestamp']=time.time()
         data['temp'] = random.randint(5,40)
         MQTT_PAYLOAD = json.dumps(data)
         client.publish(MQTT_TOPIC, MQTT_PAYLOAD, qos=1)
