@@ -14,9 +14,34 @@ Check bellow link
 https://www.hivemq.com/mqtt/public-mqtt-broker/
 
 
-## intall
 
-in Thonny type bellow command
+## install
+
+In Thonny, Run this code for network connection
+```
+import time
+import json
+import network
+
+# WiFi Info
+ssid = "<YOUR_SSID>"
+password = "<YOUR_PASSWORD>"
+
+
+# WiFi Connect
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(ssid, password)
+
+while not wlan.isconnected():
+    print("Waiting for WiFi connection...")
+    time.sleep(1)
+
+print("WiFi connected:", wlan.ifconfig())
+```
+
+
+After that, In Thonny python ternimal, type bellow command for install umqtt.simple
 ```python
 import mip
 mip.install("umqtt.simple")
